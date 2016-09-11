@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pretty Print & Copy</title>
+    <link class="css-theme" rel="stylesheet" href="themes/atelier-cave-dark.css">
+    <link class="css-theme" rel="stylesheet" href="themes/atelier-cave-light.css" disabled>
+    <link class="css-theme" rel="stylesheet" href="themes/atelier-dune-dark.css" disabled>
+    <link class="css-theme" rel="stylesheet" href="themes/atelier-dune-light.css" disabled>
+    <link class="css-theme" rel="stylesheet" href="themes/atelier-estuary-dark.css" disabled>
+    <link class="css-theme" rel="stylesheet" href="themes/atelier-estuary-light.css" disabled>
+    <link class="css-theme" rel="stylesheet" href="themes/atelier-forest-dark.css" disabled>
+    <link class="css-theme" rel="stylesheet" href="themes/atelier-forest-light.css">
+    <link class="css-theme" rel="stylesheet" href="themes/atelier-heath-dark.css" disabled>
+    <link class="css-theme" rel="stylesheet" href="themes/atelier-heath-light.css" disabled>
+    <link class="css-theme" rel="stylesheet" href="themes/atelier-lakeside-dark.css" disabled>
+    <link class="css-theme" rel="stylesheet" href="themes/atelier-lakeside-light.css" disabled>
+    <link class="css-theme" rel="stylesheet" href="themes/atelier-plateau-dark.css" disabled>
+    <link class="css-theme" rel="stylesheet" href="themes/atelier-plateau-light.css" disabled>
+    <link class="css-theme" rel="stylesheet" href="themes/atelier-savanna-dark.css" disabled>
+    <link class="css-theme" rel="stylesheet" href="themes/atelier-savanna-light.css" disabled>
+    <link class="css-theme" rel="stylesheet" href="themes/atelier-seaside-dark.css" disabled>
+    <link class="css-theme" rel="stylesheet" href="themes/atelier-seaside-light.css" disabled>
+    <link class="css-theme" rel="stylesheet" href="themes/atelier-sulphurpool-dark.css" disabled>
+    <link class="css-theme" rel="stylesheet" href="themes/atelier-sulphurpool-light.css" disabled>
+    <link class="css-theme" rel="stylesheet" href="themes/desert.css" disabled>
+    <link class="css-theme" rel="stylesheet" href="themes/doxy.css" disabled>
+    <link class="css-theme" rel="stylesheet" href="themes/github.css" disabled>
+    <link class="css-theme" rel="stylesheet" href="themes/hemisu-dark.css" disabled>
+    <link class="css-theme" rel="stylesheet" href="themes/hemisu-light.css" disabled>
+    <link class="css-theme" rel="stylesheet" href="themes/names.txt" disabled>
+    <link class="css-theme" rel="stylesheet" href="themes/sons-of-obsidian.css" disabled>
+    <link class="css-theme" rel="stylesheet" href="themes/sunburst.css" disabled>
+    <link class="css-theme" rel="stylesheet" href="themes/tomorrow-night-blue.css" disabled>
+    <link class="css-theme" rel="stylesheet" href="themes/tomorrow-night-bright.css" disabled>
+    <link class="css-theme" rel="stylesheet" href="themes/tomorrow-night-eighties.css" disabled>
+    <link class="css-theme" rel="stylesheet" href="themes/tomorrow-night.css" disabled>
+    <link class="css-theme" rel="stylesheet" href="themes/tomorrow.css" disabled>
+    <link class="css-theme" rel="stylesheet" href="themes/tranquil-heart.css" disabled>
+    <link class="css-theme" rel="stylesheet" href="themes/vibrant-ink.css" disabled>
+    <link href="https://cdn.rawgit.com/JamesWClark/RadCSS/master/rad.css" rel="stylesheet" />
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <div id="main">
+        
+        <div id="toolbar" class="flex">
+            <div class="x1 right">
+                <select id="select-editor-theme">
+                    <option value="ambiance">Ambiance</option>
+                    <option value="chaos">Chaos</option>
+                    <option value="chrome">Chrome</option>
+                    <option value="monokai" selected="selected">Monokai</option>
+                    <option value="sqlserver">SQL Server</option>
+                </select>
+                <select id="select-language">
+                    <option value="css">CSS</option>
+                    <option value="html">HTML</option>
+                    <option value="java" selected="selected">Java</option>
+                    <option value="javascript">JavaScript</option>
+                    <option value="processing">Processing</option>
+                    <option value="swift">Swift</option>
+                </select>
+            </div>
+            <div class="x1 left">
+                <select id="select-pretty-theme">
+                    <option value="themes/atelier-cave-dark.css">Atelier Cave Dark</option>
+                    <option value="themes/atelier-cave-light.css">Atelier Cave Light</option>
+                    <option value="themes/atelier-dune-dark.css">Atelier Dune Dark</option>
+                    <option value="themes/atelier-dune-light.css">Atelier Dune Light</option>
+                    <option value="themes/atelier-estuary-dark.css">Atelier Estuary Dark</option>
+                    <option value="themes/atelier-estuary-light.css">Atelier Estuary Light</option>
+                    <option value="themes/atelier-forest-dark.css">Atelier Forest Dark</option>
+                    <option value="themes/atelier-forest-light.css" selected="selected">Atelier Forest Light</option>
+                    <option value="themes/atelier-heath-dark.css">Atelier Heath Dark</option>
+                    <option value="themes/atelier-heath-light.css">Atelier Heath Light</option>
+                    <option value="themes/atelier-lakeside-dark.css">Atelier Lakeside Dark</option>
+                    <option value="themes/atelier-lakeside-light.css">Atelier Lakeside Light</option>
+                    <option value="themes/atelier-plateau-dark.css">Atelier Plateau Dark</option>
+                    <option value="themes/atelier-plateau-light.css">Atelier Plateau Light</option>
+                    <option value="themes/atelier-savanna-dark.css">Atelier Savanna Dark</option>
+                    <option value="themes/atelier-savanna-light.css">Atelier Savanna Light</option>
+                    <option value="themes/atelier-seaside-dark.css">Atelier Seaside Dark</option>
+                    <option value="themes/atelier-seaside-light.css">Atelier Seaside Light</option>
+                    <option value="themes/atelier-sulphurpool-dark.css">Atelier Sulphurpool Dark</option>
+                    <option value="themes/atelier-sulphurpool-light.css">Atelier Sulphurpool Light</option>
+                    <option value="themes/desert.css">Desert</option>
+                    <option value="themes/doxy.css">Doxy</option>
+                    <option value="themes/github.css">Github</option>
+                    <option value="themes/hemisu-dark.css">Hemisu Dark</option>
+                    <option value="themes/hemisu-light.css">Hemisu Light</option>
+                    <option value="themes/sons-of-obsidian.css">Sons of Obsidian</option>
+                    <option value="themes/sunburst.css">Sunburst</option>
+                    <option value="themes/tomorrow-night-blue.css">Tomorrow Night Blue</option>
+                    <option value="themes/tomorrow-night-bright.css">Tomorrow Night Bright</option>
+                    <option value="themes/tomorrow-night-eighties.css">Tomorrow Night Eighties</option>
+                    <option value="themes/tomorrow-night.css">Tomorrow Night</option>
+                    <option value="themes/tomorrow.css">Tomorrow</option>
+                    <option value="themes/tranquil-heart.css">Tranquil Heart</option>
+                    <option value="themes/vibrant-ink.css">Vibrant Ink</option>
+                </select>
+                <input type="checkbox" id="require-initial-background" checked>Initial Background 
+            </div>
+        </div>
+        
+        <div class="flex">
+            <div class="x1">
+                <pre id="editor"></pre>
+            </div>
+            <div class="x1">
+                <pre id="code-container" class="prettyprint initial-background-required"><code id="pretty-code" class="language-java initial-background-required"></code></pre>
+            </div>            
+        </div>
+        
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prettify/r298/prettify.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.5/ace.js" charset="utf-8"></script>
+    <script src="main.js"></script>
+</body>
+</html>
