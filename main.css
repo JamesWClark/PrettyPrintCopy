@@ -11,3 +11,9 @@ html, body {
 .initial-background-required {
     background-color: initial !important;
 }
+#instructions {
+    color: darkgray;
+    font-family: verdana, sans-serif;
+    font-size: 18px;
+    text-align: center;
+}
