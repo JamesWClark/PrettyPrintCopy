@@ -1,6 +1,9 @@
 html, body {
     margin: 0;
     padding: 0;
+}
+
+* {
     font-size: 12px;
 }
 
@@ -11,9 +14,14 @@ html, body {
 .initial-background-required {
     background-color: initial !important;
 }
+
 #instructions {
     color: darkgray;
     font-family: verdana, sans-serif;
     font-size: 18px;
     text-align: center;
+}
+
+#set-tab-size {
+    width: 34px;
 }

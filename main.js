@@ -6,14 +6,31 @@ $(document).ready(function() {
         }        
     }
     
+    var prettyPrintTabsToSpaces = true;
+    
     var editor;
     var editorFontSize = 12;
+    var editorTabSize = 4;
     
     editor = ace.edit("editor");
     editor.$blockScrolling = Infinity;
     editor.setTheme("ace/theme/monokai");
     editor.setFontSize(editorFontSize);
-    editor.getSession().setMode("ace/mode/java");
+    editor.session.setMode("ace/mode/java");
+    editor.session.setUseSoftTabs(true);
+    editor.session.setTabSize(editorTabSize);
+    
+    // stores a string of spaces equal to the size of `editorTabSize`
+    var spaces = '';
+    var setSpaces = function() {
+        spaces = '';
+        for(var i = 0; i < editorTabSize; i++) {
+            spaces += ' ';
+        }
+    };
+    
+    // initial run
+    setSpaces();
     
     // resize the editor to match window height
     var resizeEditor = function() {
@@ -22,10 +39,32 @@ $(document).ready(function() {
     
     // copy text, undo/redo pretty print
     var prettify = function() {
-        $('#pretty-code').text(editor.getValue());
+        var editorText = '';
+        if(prettyPrintTabsToSpaces) {
+            editorText = editor.getValue().replace(/\t/g, spaces);
+        } else {
+            editorText = editor.getValue();
+        }
+        $('#pretty-code').text(editorText);
         $('#code-container').removeClass('prettyprinted');
         prettyPrint();
     }
+    
+    // sets the value of the tab size text box
+    $('#set-tab-size').val(editorTabSize);
+    
+    // focus on text box click
+    $('#set-tab-size').click(function() {
+        $(this).select();
+    });
+    
+    // on tab size changed
+    $('#set-tab-size').change(function() {
+        editorTabSize = $(this).val();
+        editor.session.setTabSize(editorTabSize);
+        setSpaces();
+        prettify();
+    });
     
     // checkbox clears or keeps background color in prettyprint
     $('#require-initial-background').change(function() {
@@ -37,7 +76,16 @@ $(document).ready(function() {
             $('#code-container, #pretty-code').addClass('initial-background-required');
             prettify();
         }
-    })
+    });
+    
+    $('#replace-tabs-with-spaces').change(function() {
+        if(!this.checked) {
+            prettyPrintTabsToSpaces = false;
+        } else {
+            prettyPrintTabsToSpaces = true;
+        }
+        prettify();
+    });
     
     // select ACE theme
     $('#select-editor-theme').change(function() {
@@ -71,7 +119,7 @@ $(document).ready(function() {
 
     // resize editor when window changes
     $(window).resize(resizeEditor);
-
+    
     // set initial editor size
     resizeEditor();
 });
