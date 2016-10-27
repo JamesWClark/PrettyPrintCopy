@@ -111,7 +111,7 @@ $(document).ready(function() {
             return (css.match (/(^|\s)language-\S+/g) || []).join(' ');
         });
         
-        $("#pretty-code").addClass('language-' + this.value);
+        $("#pretty-code").addClass('lang-' + this.value);
     });
 
     // copy editor code to prettyprint
