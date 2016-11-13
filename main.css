@@ -24,3 +24,6 @@ html, body {
 #set-tab-size, #set-ppc-font-size {
     width: 34px;
 }
+#toolbar {
+    font-size: 12px;
+}

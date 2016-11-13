@@ -136,6 +136,26 @@ $(document).ready(function() {
         }
         prettify();
     });
+    
+    
+    var selectText = function(containerid) {
+        var node = document.getElementById(containerid);
+        if (document.selection) {
+            var range = document.body.createTextRange();
+            range.moveToElementText(node);
+            range.select();
+        } else if (window.getSelection) {
+            var range = document.createRange();
+            range.selectNodeContents(node);
+            window.getSelection().removeAllRanges();
+            window.getSelection().addRange(range);
+        }
+    };
+    
+    $('#copy-to-clipboard').click(function() {
+        selectText('pretty-code');
+        document.execCommand('copy');
+    });
 
     // copy editor code to prettyprint
     editor.on('input', prettify);
