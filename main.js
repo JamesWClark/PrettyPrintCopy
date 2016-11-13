@@ -71,9 +71,13 @@ $(document).ready(function() {
     
     // change the formatted text font size
     $('#set-ppc-font-size').change(function() {
-        $('#pretty-code')[0].style.fontSize = $(this).val() + "px";
+        var points = $(this).val();
+        var pixels = points * 96 / 72;
+        $('#pretty-code').css({ 'font-size' : pixels + 'px' });
+        //$('#pretty-code')[0].style.fontSize = $(this).val() + "px";
     });
     
+    // toggle the display background color
     var toggleDisplayBackground = function() {
         // i'm getting the opposite expected result here - not sure why so ! reverses it
         if(!this.checked) {
