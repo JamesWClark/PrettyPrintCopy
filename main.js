@@ -57,7 +57,7 @@ $(document).ready(function() {
     $('#set-tab-size').val(editorTabSize);
     
     // focus on text box click
-    $('#set-tab-size').click(function() {
+    $('#set-tab-size, #set-ppc-font-size').click(function() {
         $(this).select();
     });
     
@@ -69,8 +69,12 @@ $(document).ready(function() {
         prettify();
     });
     
-    // checkbox clears or keeps background color in prettyprint
-    $('#require-initial-background').change(function() {
+    // change the formatted text font size
+    $('#set-ppc-font-size').change(function() {
+        $('#pretty-code')[0].style.fontSize = $(this).val() + "px";
+    });
+    
+    var toggleDisplayBackground = function() {
         // i'm getting the opposite expected result here - not sure why so ! reverses it
         if(!this.checked) {
             $('#code-container, #pretty-code').removeClass('initial-background-required');
@@ -79,8 +83,12 @@ $(document).ready(function() {
             $('#code-container, #pretty-code').addClass('initial-background-required');
             prettify();
         }
-    });
+    };
+    
+    // checkbox clears or keeps background color in prettyprint
+    $('#require-initial-background').change(toggleDisplayBackground);
 
+    // replaces tabs with spaces and vise versa
     $('#replace-tabs-with-spaces').change(function() {
         if(!this.checked) {
             prettyPrintTabsToSpaces = false;
@@ -115,6 +123,14 @@ $(document).ready(function() {
         });
         
         $("#pretty-code").addClass('lang-' + this.value);
+
+        if(this.value === 'sql') {
+            $('#select-pretty-theme').val('monokai.min.css');
+            $('#require-initial-background').prop('checked', false);
+            toggleDisplayBackground();
+            $('#select-pretty-theme').change();
+        }
+        prettify();
     });
 
     // copy editor code to prettyprint
