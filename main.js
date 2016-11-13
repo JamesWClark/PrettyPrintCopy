@@ -77,6 +77,12 @@ $(document).ready(function() {
         //$('#pretty-code')[0].style.fontSize = $(this).val() + "px";
     });
     
+    
+    $('#display-font-family').change(function() {
+        var font = $(this).find("option:selected").text();
+        $('#pretty-code').css('font-family', font);
+    });
+    
     // toggle the display background color
     var toggleDisplayBackground = function() {
         // i'm getting the opposite expected result here - not sure why so ! reverses it
