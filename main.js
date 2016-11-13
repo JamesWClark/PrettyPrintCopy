@@ -46,8 +46,8 @@ $(document).ready(function() {
             editorText = editor.getValue();
         }
         $('#pretty-code').text(editorText);
-        //$('#code-container').removeClass('prettyprinted');
-        //prettyPrint();
+        
+        // applies syntax highlighting to all <pre><code>
         $('pre code').each(function(i, block) {
             hljs.highlightBlock(block);
         });
@@ -94,11 +94,11 @@ $(document).ready(function() {
     $('#select-editor-theme').change(function() {
         editor.setTheme('ace/theme/' + this.value);
         resizeEditor();
+        prettify();
     });
     
     // select PRETTIFY theme
     $('#select-pretty-theme').change(function() {
-        $('#code-container').removeClass('prettyprinted');
         var href = $(this).val();
         $('.css-theme').attr('disabled', 'disabled');
         $('link[href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/styles/' + href + '"]').removeAttr('disabled');
