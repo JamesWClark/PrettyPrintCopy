@@ -46,9 +46,12 @@ $(document).ready(function() {
             editorText = editor.getValue();
         }
         $('#pretty-code').text(editorText);
-        $('#code-container').removeClass('prettyprinted');
-        prettyPrint();
-    }
+        //$('#code-container').removeClass('prettyprinted');
+        //prettyPrint();
+        $('pre code').each(function(i, block) {
+            hljs.highlightBlock(block);
+        });
+    };
     
     // sets the value of the tab size text box
     $('#set-tab-size').val(editorTabSize);
@@ -77,7 +80,7 @@ $(document).ready(function() {
             prettify();
         }
     });
-    
+
     $('#replace-tabs-with-spaces').change(function() {
         if(!this.checked) {
             prettyPrintTabsToSpaces = false;
@@ -98,8 +101,8 @@ $(document).ready(function() {
         $('#code-container').removeClass('prettyprinted');
         var href = $(this).val();
         $('.css-theme').attr('disabled', 'disabled');
-        $('link[href="' + href + '"]').removeAttr('disabled');
-        prettyPrint();
+        $('link[href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/styles/' + href + '"]').removeAttr('disabled');
+        prettify();
     });
     
     // select language - ACE and PRETTIFY
@@ -108,10 +111,10 @@ $(document).ready(function() {
         
         $("#pretty-code").removeClass(function (index, css) {
             // http://stackoverflow.com/a/5182103/1161948
-            return (css.match (/(^|\s)language-\S+/g) || []).join(' ');
+            return (css.match (/(^|\s)lang-\S+/g) || []).join(' ');
         });
         
-        $("#pretty-code").addClass('language-' + this.value);
+        $("#pretty-code").addClass('lang-' + this.value);
     });
 
     // copy editor code to prettyprint
