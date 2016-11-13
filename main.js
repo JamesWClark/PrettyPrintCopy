@@ -143,7 +143,7 @@ $(document).ready(function() {
         prettify();
     });
     
-    
+    // highlight text from the selected ID
     var selectText = function(containerid) {
         var node = document.getElementById(containerid);
         if (document.selection) {
@@ -158,6 +158,7 @@ $(document).ready(function() {
         }
     };
     
+    // highlight text then copy to clipboard
     $('#copy-to-clipboard').click(function() {
         selectText('pretty-code');
         document.execCommand('copy');
